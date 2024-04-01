@@ -23,7 +23,7 @@ function Login() {
             if (response.ok) {
                 const data = await response.json();
                 localStorage.setItem('token', data.token);
-                navigate('/');
+                navigate('/user-profile');
             } else {
                 setErrorMessage('Invalid email or password. Please try again.');
             }
@@ -59,7 +59,7 @@ function Login() {
                         </div>
 
                         <div className="text-right mt-2">
-                            <a href="/" className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>
+                            <Link to="/forgot-password" className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</Link>
                         </div>
 
                         <button type="button" onClick={handleLogin} className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">

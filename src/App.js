@@ -5,6 +5,9 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Navbar from './components/Navbar';
 import './App.css';
+import ForgotPassword from './components/ForgotPassword';
+import UserProfile from './components/UserProfile';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,7 +27,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
         <Route path="/login-user" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/register-user" element={<RegisterPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </div>
   );
