@@ -29,7 +29,7 @@ function Navbar({ isLoggedIn }) {
                         </li>
                     </ul>
                     {isLoggedIn ? (
-                        <Link to="/profile" className="font-dm text-sm font-medium text-slate-700">Profile</Link>
+                        <Link to="/user-profile" className="font-dm text-sm font-medium text-slate-700">Profile</Link>
                     ) : (
                         <Link to="/login-user" className="font-dm text-sm font-medium text-slate-700">Sign in</Link>
                     )}

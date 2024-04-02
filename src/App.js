@@ -7,6 +7,8 @@ import Navbar from './components/Navbar';
 import './App.css';
 import ForgotPassword from './components/ForgotPassword';
 import UserProfile from './components/UserProfile';
+import NeedRoommate from './components/NeedRoommate';
+
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/register-user" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/need-roommate" element={<NeedRoommate />} />
+        
       </Routes>
     </div>
   );
