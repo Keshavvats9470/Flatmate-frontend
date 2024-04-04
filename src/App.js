@@ -8,6 +8,7 @@ import './App.css';
 import ForgotPassword from './components/ForgotPassword';
 import UserProfile from './components/UserProfile';
 import NeedRoommate from './components/NeedRoommate';
+import NeedRoom from './components/NeedRoom';
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/register-user" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/need-roommate" element={<NeedRoommate />} />
+        <Route path="/need-room" element={<NeedRoom />} />
         
       </Routes>
     </div>
