@@ -1,9 +1,42 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom'; // Import useParams to extract URL parameters
 
 function RoommateDetails() {
+    const { userId } = useParams(); // Extract user ID from URL parameters
+    const [roommateData, setRoommateData] = useState(null);
+
+    useEffect(() => {
+        const fetchRoommateData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await fetch('http://localhost:4000/roommate/find-roommate/all', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    // Find the roommate associated with the user ID
+                    const roommate = data.roommates.find(roommate => roommate.userId._id === userId);
+                    setRoommateData(roommate);
+                    console.log('new data:',data);
+                } else {
+                    console.error('Failed to fetch roommate data:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching roommate data:', error);
+            }
+        };
+
+        fetchRoommateData();
+    }, [userId]);
+
     return (
         <div>
-            <section class="w-full overflow-hidden dark:bg-gray-900">
+            {roommateData ? (
+               
+                <section class="w-full overflow-hidden dark:bg-gray-900">
                 <div class="w-full mx-auto">
                     <img src="https://images.unsplash.com/photo-1560697529-7236591c0066?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMHx8Y292ZXJ8ZW58MHwwfHx8MTcxMDQ4MTEwNnww&ixlib=rb-4.0.3&q=80&w=1080" alt="User Cover"
                         class="w-full xl:h-[20rem] lg:h-[22rem] md:h-[16rem] sm:h-[13rem] xs:h-[9.5rem]" />
@@ -15,15 +48,18 @@ function RoommateDetails() {
 
                     <div
                         class="xl:w-[80%] lg:w-[90%] md:w-[94%] sm:w-[96%] xs:w-[92%] mx-auto flex flex-col gap-4 justify-center items-center relative xl:-top-[6rem] lg:-top-[6rem] md:-top-[4rem] sm:-top-[3rem] xs:-top-[2.2rem]">
-                        <h1 class="text-center text-gray-800 dark:text-white text-4xl font-serif">Samuel Abera</h1>
-                        <p class="w-full text-gray-700 dark:text-gray-400 text-md text-pretty text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eum, voluptatem aspernatur aliquam excepturi sed ipsam aliquid minus nobis animi maxime at rem beatae perferendis quidem molestiae libero quos. Quasi.</p>
+                 <h1 class="text-center text-gray-800 dark:text-white text-4xl font-serif">
+    {roommateData && roommateData.userId && roommateData.userId.firstName && roommateData.userId.lastName ?
+        `${roommateData.userId.firstName} ${roommateData.userId.lastName}` : 'Anonymous'}
+</h1>
+       <p class="w-full text-gray-700 dark:text-gray-400 text-md text-pretty text-center">{roommateData.description}</p>
 
                         <div className='md:flex lg:flex xl:flex flex-none md:gap-5 lg:gap-8 xl:gap-8 bg-gray-100 px-4 py-2 rounded-md'>
-                            <p>+91 74928*****</p>
+                            <p>Phone Number - {roommateData.userId.mobileNumber}</p>
                             <p className='font-extrabold md:block lg:block xl:block hidden'>| </p>
-                            <p>Address - Bangalore, Near This One Road. </p>
+                            <p>Address - {roommateData.location} </p>
                             <p className='font-extrabold md:block lg:block xl:block hidden'>|</p>
-                            <p>Profession - Developer</p>
+                            <p>Profession - {roommateData.userId.whoYouAre}</p>
                             <p className='font-extrabold md:block lg:block xl:block hidden'>|</p>
                             <p>Age - 26</p>
                         </div>
@@ -105,8 +141,11 @@ function RoommateDetails() {
                     </div>
                 </div>
             </section>
+            ) : (
+                <div>Loading...</div>
+            )}
         </div>
-    )
+    );
 }
 
-export default RoommateDetails
+export default RoommateDetails;

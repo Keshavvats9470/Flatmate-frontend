@@ -17,6 +17,7 @@ function UserProfile() {
     socialMedia: '',
     aadhaar: '',
     pan: '',
+    age:'',
   });
 
   const [successMessage, setSuccessMessage] = useState('');
@@ -110,6 +111,10 @@ function UserProfile() {
               <div className="mb-4">
                 <label htmlFor="gender" className="block text-gray-700">Gender</label>
                 <input placeholder='Male/Female/Others' type="text" id="gender" name="gender" value={formData.gender} onChange={handleChange} className="w-full px-4 py-3 rounded-lg bg-gray-100 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none placeholder:font-light" />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="age" className="block text-gray-700">Age</label>
+                <input placeholder='Age' type="number" id="age" name="age" value={formData.age} onChange={handleChange} className="w-full px-4 py-3 rounded-lg bg-gray-100 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none placeholder:font-light" />
               </div>
               <div className="mb-4">
                 <label htmlFor="city" className="block text-gray-700">City</label>

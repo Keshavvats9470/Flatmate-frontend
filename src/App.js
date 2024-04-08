@@ -37,7 +37,7 @@ function App() {
         <Route path="/need-roommate" element={<NeedRoommate />} />
 
         <Route path='/listings/roommates' element={<FindRoomsPage />} />
-        <Route path='/listings/roommates-details-contact-me' element={<RoommateDetailsPage />} />
+        <Route path='/listings/roommates-details-contact-me/:userId' element={<RoommateDetailsPage />} />
 
       </Routes>
     </div>

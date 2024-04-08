@@ -44,7 +44,7 @@ function PeopleList() {
                                 <p className="text-base text-gray-400 font-normal">Rent - ₹{person.rent}</p>
                                 <p className="text-base text-gray-400 font-normal">Looking for Roommate</p>
                             </div>
-                            <Link to={`/listings/roommates-details-contact-me`}>
+                            <Link to={`/listings/roommates-details-contact-me/${person.userId._id}`}>
                                 <div className='mt-2'>
                                     <button className='px-4 py-1 bg-violet-500 text-gray-200 tracking-[1px] rounded-md'>Contact Me</button>
                                 </div>
