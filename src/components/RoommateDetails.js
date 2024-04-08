@@ -20,7 +20,7 @@ function RoommateDetails() {
 
                         <div className='md:flex lg:flex xl:flex flex-none md:gap-5 lg:gap-8 xl:gap-8 bg-gray-100 px-4 py-2 rounded-md'>
                             <p>+91 74928*****</p>
-                            <p className='font-extrabold md:block lg:block xl:block hidden'>|</p>
+                            <p className='font-extrabold md:block lg:block xl:block hidden'>| </p>
                             <p>Address - Bangalore, Near This One Road. </p>
                             <p className='font-extrabold md:block lg:block xl:block hidden'>|</p>
                             <p>Profession - Developer</p>
