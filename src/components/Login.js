@@ -23,7 +23,7 @@ function Login() {
             if (response.ok) {
                 const data = await response.json();
                 localStorage.setItem('token', data.token);
-                navigate('/user-profile');
+                navigate('/');
             } else {
                 setErrorMessage('Invalid email or password. Please try again.');
             }
