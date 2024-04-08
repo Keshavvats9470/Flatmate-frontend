@@ -1,7 +1,8 @@
 import React from 'react';
 import image2 from "../assets/images/house-bg.jpg"
+import { Link } from 'react-router-dom';
 
-function Hero() {
+function Hero({ isLoggedIn }) {
     return (
         <div class="relative">
             <img
@@ -44,9 +45,17 @@ function Hero() {
                         </div>
                     </div>
 
-                    <div className='mt-6 max-w-sm'>
-                        <button className='bg-gradient-to-r from-indigo-500 via-purple-700 to-pink-500 px-8 py-2 text-white rounded-lg font-bold tracking-[1px]'>Sign-In</button>
-                    </div>
+                    <Link to={`/listings/roommates`}>
+                        {/* {isLoggedIn && ( */}
+                        <div className='mt-6 max-w-sm'>
+
+                            <button className='bg-gradient-to-r from-indigo-500 via-purple-700 to-pink-500 px-8 py-4 text-white rounded-lg font-bold tracking-[1px] flex gap-2'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>
+                                Find Roommate</button>
+                        </div>
+                        {/* )} */}
+                    </Link>
                 </div>
             </div>
         </div>

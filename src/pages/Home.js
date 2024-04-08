@@ -4,6 +4,7 @@ import About from '../components/About';
 import MainAbout from '../components/MainAbout';
 import HeroMain from '../components/HeroMain';
 import CityViewAbout from '../components/CityViewAbout';
+import Footer from '../components/Footer';
 
 function Home({ isLoggedIn }) {
     return (
@@ -13,6 +14,7 @@ function Home({ isLoggedIn }) {
             <MainAbout />
             <HeroMain />
             <CityViewAbout />
+            <Footer />
         </div>
     )
 }
