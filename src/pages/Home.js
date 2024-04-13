@@ -5,6 +5,7 @@ import MainAbout from '../components/MainAbout';
 import HeroMain from '../components/HeroMain';
 import CityViewAbout from '../components/CityViewAbout';
 import Footer from '../components/Footer';
+import PeopleList from '../components/PeopleList';
 
 function Home({ isLoggedIn }) {
     return (
@@ -12,6 +13,7 @@ function Home({ isLoggedIn }) {
             <Hero />
             <About />
             <MainAbout />
+            <PeopleList />
             <HeroMain />
             <CityViewAbout />
             <Footer />

@@ -44,7 +44,7 @@ function NeedRoom() {
                         highlights: firstRoom.highlights || [],
                         companyOrCollege: firstRoom.companyOrCollege || '',
                         makingTeamInterest: firstRoom.makingTeamInterest || false,
-                        interestedInPgh:firstRoom.interestedInPgh || false,
+                        interestedInPgh: firstRoom.interestedInPgh || false,
                         visible: firstRoom.visible || 'public',
                         description: firstRoom.description || '',
                     });
@@ -120,7 +120,7 @@ function NeedRoom() {
     const updateRoomDetails = async () => {
         try {
             const token = localStorage.getItem('token');
-            const id = roomListings[0]._id; // Assuming you always want to update the first listing
+            const id = roomListings[0]._id;
             const response = await fetch(`http://localhost:4000/room/find-room/${id}`, {
                 method: 'PUT',
                 headers: {
@@ -174,69 +174,69 @@ function NeedRoom() {
                                 </select>
                             </div>
                             <div>
-  <label className="block text-sm font-medium text-gray-700">Highlights</label>
-  <div className="mt-2 grid grid-cols-2 gap-4">
-    {[
-      
-      'Working full time',
-      'College student',
-      '25+ age',
-      'Working night shifts',
-      'Have 2 wheeler',
-      'Have 4 wheeler',
-      'Have pets',
-      'Need no furnishing',
-      'Pure veg',
-      'Shift immediately'
-    ].map((highlight, index) => (
-      <label key={index} className="flex items-center">
-        <input
-          type="checkbox"
-          name="highlights"
-          value={highlight}
-          checked={formData.highlights.includes(highlight)}
-          onChange={handleCheckboxChange}
-          className="mr-2"
-        />
-        {highlight}
-      </label>
-    ))}
-  </div>
-</div>
+                                <label className="block text-sm font-medium text-gray-700">Highlights</label>
+                                <div className="mt-2 grid grid-cols-2 gap-4">
+                                    {[
+
+                                        'Working full time',
+                                        'College student',
+                                        '25+ age',
+                                        'Working night shifts',
+                                        'Have 2 wheeler',
+                                        'Have 4 wheeler',
+                                        'Have pets',
+                                        'Need no furnishing',
+                                        'Pure veg',
+                                        'Shift immediately'
+                                    ].map((highlight, index) => (
+                                        <label key={index} className="flex items-center">
+                                            <input
+                                                type="checkbox"
+                                                name="highlights"
+                                                value={highlight}
+                                                checked={formData.highlights.includes(highlight)}
+                                                onChange={handleCheckboxChange}
+                                                className="mr-2"
+                                            />
+                                            {highlight}
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
                             <div>
                                 <label htmlFor="companyOrCollege" className="block text-sm font-medium text-gray-700">Company or College</label>
                                 <input id="companyOrCollege" name="companyOrCollege" type="text" value={formData.companyOrCollege} onChange={handleChange} className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" />
                             </div>
                             <div>
-    <label className="block text-sm font-medium text-gray-700">Intrested in Pg</label>
-    <div className="mt-2">
-        <label className="inline-flex items-center">
-            <input 
-                type="checkbox" 
-                name="interestedInPgh" 
-                checked={formData.interestedInPgh} 
-                onChange={() => setFormData({ ...formData, interestedInPgh: !formData.interestedInPgh })} // Toggle the boolean value
-                className="mr-2" 
-            />
-            Yes
-        </label>
-    </div>
-</div>
-<div>
-    <label className="block text-sm font-medium text-gray-700">Interested in making a team</label>
-    <div className="mt-2">
-        <label className="inline-flex items-center">
-            <input 
-                type="checkbox" 
-                name="makingTeamInterest" 
-                checked={formData.makingTeamInterest} 
-                onChange={() => setFormData({ ...formData, makingTeamInterest: !formData.makingTeamInterest })} // Toggle the boolean value
-                className="mr-2" 
-            />
-            Yes
-        </label>
-    </div>
-</div>
+                                <label className="block text-sm font-medium text-gray-700">Intrested in Pg</label>
+                                <div className="mt-2">
+                                    <label className="inline-flex items-center">
+                                        <input
+                                            type="checkbox"
+                                            name="interestedInPgh"
+                                            checked={formData.interestedInPgh}
+                                            onChange={() => setFormData({ ...formData, interestedInPgh: !formData.interestedInPgh })}
+                                            className="mr-2"
+                                        />
+                                        Yes
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Interested in making a team</label>
+                                <div className="mt-2">
+                                    <label className="inline-flex items-center">
+                                        <input
+                                            type="checkbox"
+                                            name="makingTeamInterest"
+                                            checked={formData.makingTeamInterest}
+                                            onChange={() => setFormData({ ...formData, makingTeamInterest: !formData.makingTeamInterest })}
+                                            className="mr-2"
+                                        />
+                                        Yes
+                                    </label>
+                                </div>
+                            </div>
 
                             <div>
                                 <label htmlFor="visible" className="block text-sm font-medium text-gray-700">Visibility</label>

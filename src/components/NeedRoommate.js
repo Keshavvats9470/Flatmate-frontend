@@ -65,7 +65,7 @@ function NeedRoommate() {
   const updateRoommateDetails = async () => {
     try {
       const token = localStorage.getItem('token');
-      const id = roommateListings[0]._id; // Assuming you always want to update the first listing
+      const id = roommateListings[0]._id;
       const response = await fetch(`http://localhost:4000/roommate/find-roommate/${id}`, {
         method: 'PUT',
         headers: {
