@@ -47,6 +47,17 @@ function UserProfile() {
     }
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        setFormData({ ...formData, image: e.target.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (files) {
@@ -122,7 +133,10 @@ function UserProfile() {
               </div>
               <div className="mb-4">
                 <label htmlFor="image" className="block text-gray-700">Image</label>
-                <input type="file" id="image" name="image" onChange={handleChange} className="w-full px-4 py-3 rounded-lg bg-gray-100 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none placeholder:font-light" />
+                <input type="file" id="image" name="image" onChange={handleImageChange} src={formData.image} alt="Preview" className="w-full px-4 py-3 rounded-lg bg-gray-100 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none placeholder:font-light" />
+                {formData.image && (
+    <img src={formData.image} alt="Preview" className="mt-2 rounded-lg max-w-xs" />
+  )}
               </div>
               <div className="mb-4">
                 <label htmlFor="socialMedia" className="block text-gray-700">Social Media</label>
